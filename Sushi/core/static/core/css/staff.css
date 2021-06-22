@@ -1,0 +1,133 @@
+:root {
+    --header-height: 100px;
+    --font-semi: 600;
+    --font-bold: 700;
+
+    --second-color: #E55947;
+    --second-color-alt: #d00008;
+    --white-color: #FAFAFF;
+    --dark-color: #101010;
+    --dark-color-light: #1e1e1e;
+    --gray-color: #F0F1F3;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--dark-color-light);
+}
+
+body::-webkit-scrollbar {
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #d00008;
+}
+
+li {
+    list-style: none;
+}
+
+.navbar {
+    width: 100%;
+    height: 80px;
+    background-color: transparent !important;
+}
+
+.nav-link {
+    color: var(--second-color-alt) !important;
+    font-size: 2.0rem;
+}
+
+.navbar-brand img {
+    width: 200px;
+}
+
+.dropdown-menu {
+    width: 200px;
+    border-radius: 10px;
+}
+
+.dropdown-item {
+    font-size: 1.8rem;
+    color: var(--second-color-alt);
+    padding: 1rem 2rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dropdown-item:hover {
+    background-color: var(--second-color-alt);
+    color: white;
+    border-radius: 5px;
+}
+
+.main {
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_bienvenida {
+    width: 100%;
+    text-align: center;
+}
+
+.container_bienvenida .titulo {
+    font-size: 2.0rem;
+    color: var(--white-color);
+    margin: 10px;
+}
+
+.bienvenida {
+    width: 60%;
+    height: 100px;
+    background-color: var(--second-color-alt);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.bienvenida h2 {
+    font-size: 2.5rem;
+    color: white;
+}
+
+table {
+    font-size: 1.6rem;
+}
+
+label {
+    font-size: 1.6rem;
+}
+
+input, select {
+    height: 30px;
+}
+
+.btn {
+    width: 100px;
+    height: 40px;
+    font-size: 1.6rem;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.btn:hover {
+    background-color: var(--second-color-alt);
+}
+
+.title {
+    margin-bottom: 15px;
+    font-size: 2.0rem;
+}

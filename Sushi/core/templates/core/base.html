@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block name %}
+    <title>Proyecto Sushi</title>
+    {% endblock %}
+    {% load static %}
+    {% block css %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'core/'%}css/styles.css">
+    <link rel="icon" type="imge/png" href="{% static 'core/'%}img/icons/cropped-Sin-título-1-32x32.png">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class="bx bx-chevron-up scrolltop__icon" scrolltop__icon></i>
+    </a>
+    <header id="header">
+        <div class="header__sesion">
+            {% if user.is_authenticated %}
+                <a href="#">{{ user.email }}</a>
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+                <a href="{% url 'registro_usuario' %}">Registrate</a>
+            {% endif %}
+        </div>
+        <nav class="header__nav">
+            <div class="nav__logo">
+                <a href="{% url 'home' %}"><img src="{% static 'core/'%}img/icons/logo2-web-1024x373.png" alt=""></a>
+            </div>
+            <div class="nav__menu" id="nav-menu">
+                <div class="nav__toggle--close" id="nav-toggle-close">
+                    <i class='bx bx-x' id="close"></i>
+                </div>
+                <img src="{% static 'core/'%}img/icons/logo2-web-1024x373 v2.png" alt="">
+                <ul class="nav__list">
+                    <li class="nav__items"><a href="{% url 'home' %}" class="nav__links active-link">Inicio</a></li>
+                    <li class="nav__items"><a href="{% url 'about' %}" class="nav__links">Nosotros</a></li>
+                    <li class="nav__items"><a href="{% url 'menu' %}" class="nav__links">Menú</a></li>
+                    <li class="nav__items"><a href="{% url 'contact' %}" class="nav__links">Contacto</a></li>
+                    <li class="nav__items"><a href="{% url 'apirest' %}" class="nav__links">API REST</a></li>
+                    {% if perms.AppProductos  %}
+                        <li class="nav__items"><a href="{% url 'staffUsers' %}" class="nav__links">Staff</a></li>
+                    {% endif %}
+                </ul>
+                <div class="menu__social">
+                    <i class='bx bxl-instagram'></i>
+                    <i class='bx bxl-facebook' ></i>
+                    <i class='bx bxl-twitter' ></i>
+                </div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu' id="menu-toggle"></i>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="shopping">
+            <span class="items-count">0</span>
+            <i class='bx bx-cart'></i>
+        </div>
+    {% block contenido %}
+    {% endblock %}
+    </main>
+    <footer>
+        <section class="footer__top">
+            <div class="footer__row">
+                <div class="footer__row--title">
+                    <h4>Medio de pago</h4>
+                </div>
+                <div class="footer__row--body">
+                    <img src="{% static 'core/'%}img/instalar-webpay-plus-300x140-1.png" alt="">
+                </div>
+            </div>
+            <div class="footer__row">
+                <div class="footer__row--title">
+                    <h4>Información de Contacto</h4>
+                </div>
+                <div class="footer__row--body">
+                    <p><i class='bx bxs-map'></i> San Martin 622, Concepción, Chile</p><br>
+                    <p><i class='bx bx-phone' ></i> +56 9 1234 5678</p>
+                </div>
+            </div>
+            <div class="footer__row">
+                <div class="footer__row--title">
+                    <h4>Redes Sociales</h4>
+                </div>
+                <div class="footer__row--body">
+                    <i class='bx bxl-instagram'></i>
+                    <i class='bx bxl-facebook' ></i>
+                    <i class='bx bxl-twitter' ></i>
+                </div>
+            </div>
+        </section>
+        <section class="footer__bottom">
+            <p>Programación Web || Duoc UC 2021</p>
+        </section>
+    </footer>
+    <script src="{% static 'core/' %}js/mixitup.min.js"></script>
+    <script src="{% static 'core/' %}js/main.js"></script>
+    {% block javascript %}
+    {% endblock %}
+</body>
+</html>

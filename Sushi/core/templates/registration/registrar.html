@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+{% block name %}
+    <title>Registro</title>
+{% endblock %}
+{% load static %}
+{% block javascript %}
+    <script src="{% static 'core/' %}js/jquery.validate.js"></script>
+{% endblock %}
+{% block contenido %}
+        <section class="register__section">
+            <div class="register__container">
+                <h3>Registrate aquí!</h3>
+                <form action="" method="POST" id="register-forms">
+                    {% csrf_token %}
+                    <div class="input__div one">
+                        <div>
+                            <p><i class='bx bx-envelope'></i> Correo Electronico</p>
+                        </div>
+                        <input class="input" type="text" name="email" id="email">
+                    </div>
+                    <div class="input__div two">
+                        <div>
+                            <p><i class='bx bx-user'></i> Nombre de usuario</p>
+                        </div>
+                        <input class="input" type="text" name="username" id="username">
+                    </div>
+                    <div class="input__div one">
+                        <div>
+                            <p><i class='bx bx-user'></i> Nombre</p>
+                        </div>
+                        <input class="input" type="text" name="first_name" id="first_name">
+                    </div>
+                    <div class="input__div one">
+                        <div>
+                            <p><i class='bx bx-user'></i> Apellido</p>
+                        </div>
+                        <input class="input" type="text" name="last_name" id="last_name">
+                    </div>
+                    <div class="input__div three">
+                        <div>
+                            <p><i class='bx bx-lock-alt'></i> Contraseña</p>
+                        </div>
+                        <input class="input" type="password" name="password1" id="password1">
+                    </div>
+                    <div class="input__div four">
+                        <div>
+                            <p><i class='bx bx-lock-alt'></i> Confirmar ontraseña</p>
+                        </div>
+                        <input class="input" type="password" name="password2" id="password2">
+                    </div>
+                    <a class="register__text" href="{% url 'login' %}">Ya tienes una cuenta?</a>
+                    <input type="submit" class="home__body--button btn" value="Registrase">
+                </form>
+            </div>
+        </section>
+{% endblock %}

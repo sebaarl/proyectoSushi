@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+{% block name %}
+    <title>Inicio de sesión</title>
+{% endblock %}
+{% load static %}
+{% block javascript %}
+{% endblock %}
+{% block contenido %}
+        <div class="shopping">
+            <span class="items-count">0</span>
+            <i class='bx bx-cart'></i>
+        </div>
+        <section class="login__section">
+            <div class="login__container">
+                <h3>Inicia sesión aquí!</h3>
+                <form method="POST" id="form-login">
+                    {% csrf_token %}
+                    <div class="input__div one">
+                        <div>
+                            <p><i class='bx bx-user'></i> Nombre de usuario</p>
+                        </div>
+                        <input class="input" type="text" name="username" id="email">
+                    </div>
+                    <div class="input__div two">
+                        <div>
+                            <p><i class='bx bx-lock-alt'></i> Contraseña</p>
+                        </div>
+                        <input class="input" type="password" name="password" id="pass">
+                    </div>
+                    <a class="login__text" href="">Olvidaste tu contraseña?</a>
+                    <a class="login__text" href="../secundary/register.html">Resgistrate aquí!</a>
+                    <input type="submit" class="home__body--button btn" value="Iniciar Sesión">
+                </form>
+            </div>
+        </section>
+    </main>
+{% endblock %}

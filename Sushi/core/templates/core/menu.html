@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% block name %}
+    <title>Menú</title>
+{% endblock %}
+{% load static %}
+{% block contenido %}
+        <section>
+            <div class="home__img">
+                <div class="home__food">
+                    <div class="home__food--body">
+                        <h2>Nuestro menú</h2>
+                        <div class="home__body--content">
+                            <p></p>
+                        </div>
+                        <a class="home__body--button" href="#">Descargar menú</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="featured__product">
+            <h2>Nuestro Menú</h2>
+            <div class="product__nav">
+                <span class="product__item active-product" data-filter="all">Todo</span>
+                <span class="product__item" data-filter=".Promos">Promos</span>
+                <span class="product__item" data-filter=".Gohan">Gohan</span>
+                <span class="product__item" data-filter=".Roll">Rolls</span>
+                <span class="product__item" data-filter=".Extras">Extras</span>
+            </div>
+            <div class="product__container">
+                {% for p in productos %}
+                <div class="product__content mix {{ p.tipo }}">
+                    <div class="product__data">
+                        <h3 class="product__title">{{ p.nombre }}</h3>
+                        <div class="product_descripcion">
+                            <p class="product__body">$ {{ p.precio }}</p>
+                            <p class="product__body">{{ p.descripcion }}</p>
+                        </div>
+                        <a class="home__body--button product__button">Agregar al carro</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+{% endblock %}

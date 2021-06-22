@@ -1,0 +1,23 @@
+{% extends 'core/staff.html' %}
+{% block name %}
+    <title>Agregar producto</title>
+{% endblock %}
+{% block contenido %}
+    <div class="p-5 w-50">
+        <h2 class="text-danger title">Crear nuevo producto</h2>
+        {% load crispy_forms_tags %}
+        <div class="">
+            <form action="" method="POST" class="text-danger shadow-lg p-5" enctype="multipart/form-data">
+                <div class="w-100">
+                    {% csrf_token %}
+                    <table>
+                        {{ form | crispy }}
+                    </table>
+                    <input type="reset" value="Limpiar" class="btn btn-danger">
+                    <input type="submit" value="Guardar" class="btn btn-danger">
+                </div>
+            </form>
+        </div>
+        {{ mensaje }}      
+    </div>
+{% endblock %}

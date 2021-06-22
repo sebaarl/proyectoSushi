@@ -1,0 +1,21 @@
+{% extends 'core/staff.html' %}
+{% block name %}
+    <title>Modificar Tipo</title>
+{% endblock %}
+{% block contenido %}
+    <div class="p-5 w-50 container_new">
+        <h2 class="text-danger title">Modificar tipo</h2>
+        {% load crispy_forms_tags %}
+        <div class="container-form">
+            <form action="" method="POST" class="text-danger shadow-lg p-5">
+                {% csrf_token %}
+                <table>
+                    {{ form | crispy}}
+                </table>
+                <input type="reset" value="Limpiar" class="btn btn-danger">
+                <input type="submit" value="Guardar" class="btn btn-danger">
+            </form>
+        </div>
+        {{ mensaje }}
+    </div>
+{% endblock %}
