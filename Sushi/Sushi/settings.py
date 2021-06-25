@@ -90,7 +90,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'proyecto_sushi_db',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'seba199804',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
