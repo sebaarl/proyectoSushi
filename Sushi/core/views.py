@@ -157,3 +157,19 @@ def eliminar_usuario(request, id):
     usuario.delete()
 
     return redirect(to='listado_usuarios')
+
+@user_passes_test(superuser)
+def modificar_usuario(request, id ):
+    usuario = User.objects.get(id=id)
+    data = {
+        'form' : CustomUserFrom(instance=usuario)
+    }
+
+    if request.method == 'POST':
+        formulario = CustomUserFrom(data=request.POST, instance=usuario)
+        if formulario.is_valid():
+            formulario.save()
+            data['mensaje'] = 'El usuario ha modificado correctamente!'
+            data['form'] = formulario
+
+    return render(request, 'core/modificar_usuario.html', data)

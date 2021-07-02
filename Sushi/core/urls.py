@@ -1,6 +1,13 @@
 from typing import Mapping
+from django.db import router
 from django.urls import path
-from core.views import home, about, menu, contact, apirest, registro_usuario, staffUsers, listado_productos, listado_tipos, nuevo_producto, nuevo_tipo, modificar_producto, eliminar_producto, modificar_tipo, eliminar_tipo, listado_usuarios, eliminar_usuario
+from django.urls.conf import include
+from core.views import home, about, menu, contact, apirest, registro_usuario, staffUsers, listado_productos, listado_tipos, nuevo_producto, nuevo_tipo, modificar_producto, eliminar_producto, modificar_tipo, eliminar_tipo, listado_usuarios, eliminar_usuario, modificar_usuario
+from AppProductos.views import ProductViewSet
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register('productos', ProductViewSet)
 
 urlpatterns = [
     path('', home, name="home"),
@@ -20,4 +27,6 @@ urlpatterns = [
     path('staff-sushi/eliminar-tipo/<id>/', eliminar_tipo, name='eliminar_tipo'),
     path('staff-sushi/listado-usuarios/', listado_usuarios, name='listado_usuarios'),
     path('staff-sushi/eliminar-usuario/<id>/', eliminar_usuario, name='eliminar_usuario'),
+    path('staff-sushi/modificar-usuario/<id>/', modificar_usuario, name='modificar_usuario'),
+    path('api/', include(router.urls)),
 ]

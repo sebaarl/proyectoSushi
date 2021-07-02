@@ -32,7 +32,7 @@
                     <td>No</td>
                 {% endif %}
                 <td>{{ u.groups }}</td>
-                <td><a href="{% url 'eliminar_usuario' u.id %}"><i class='bx bx-pencil icon text-danger'></i></a></td>
+                <td><a href="{% url 'modificar_usuario' u.id %}"><i class='bx bx-pencil icon text-danger'></i></a></td>
                 <td><a href="{% url 'eliminar_usuario' u.id %}"><i class='bx bx-trash icon text-danger'></i></a></td>
             </tr>
             {% endfor %}
